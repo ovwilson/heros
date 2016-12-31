@@ -10,7 +10,7 @@ declare var firebase: any;
 
 @Injectable()
 
-export class firebaseEffects {
+export class FirebaseEffects {
 
     constructor(private actions$: Actions, private store: Store<any>) { }
 
