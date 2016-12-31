@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 declare var window: any;
 
@@ -8,22 +9,27 @@ declare var window: any;
 
 export class HeroesComponent implements OnInit {
 
-    ngOnInit(){
-        
+    constructor(private router: Router) { }
+
+    ngOnInit() {
+
     }
-    
+
     addHero() {
+        this.router.navigate(["/heroes", { outlets: { "add": ["heroes-add"] } }]);
         this.showNav();
     }
 
     showNav() {
-        // Show sideNav
-        window.$(".btn-collapse").sideNav("show");
-        // Hide sideNav
-        // window.$(".button-collapse").sideNav("hide");
-        // Destroy sideNav
-        // window.$(".button-collapse").sideNav("destroy");
+        setTimeout(() => window.$(".btn-collapse").sideNav("show"));
     }
 
+    hideNav() {
+        setTimeout(() => window.$(".btn-collapse").sideNav("hide"));
+    }
+
+    destroyNav() {
+        setTimeout(() => window.$(".btn-collapse").sideNav("destroy"));
+    }
 
 }

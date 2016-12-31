@@ -1,9 +1,9 @@
-export interface Todo {
+export interface Hero {
     id?: string,
     description?: string,
-    complete?: boolean
+    topRated?: boolean
 }
 
 export interface AppState {
-    filter: Todo[]
+    heroes: Hero[]
 }

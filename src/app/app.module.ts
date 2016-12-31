@@ -4,13 +4,14 @@ import { RouterModule } from "@angular/router";
 import { HttpModule } from "@angular/http";
 import { BrowserModule } from "@angular/platform-browser";
 
-// import { StoreModule } from '@ngrx/store';
-// import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 // import { firebaseEffects } from "./effects/effects";
-// import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-// import { StoreLogMonitorModule, useLogMonitor } from '@ngrx/store-log-monitor';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreLogMonitorModule, useLogMonitor } from '@ngrx/store-log-monitor';
 
 import { APPRROUTES } from "./app.routes";
+import { PreloadSelectedModules } from "./app.preload-strategy";
 import { AppComponent } from "./app.component";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { SideNavComponent } from "./sidenav/sidenav.component";
@@ -20,7 +21,7 @@ import { SideNavComponent } from "./sidenav/sidenav.component";
         BrowserModule,
         HttpModule,
         FormsModule,
-        RouterModule.forRoot(APPRROUTES)
+        RouterModule.forRoot(APPRROUTES, { preloadingStrategy: PreloadSelectedModules })
         // StoreModule.provideStore({ todos: todos, filter: filter }),
         // StoreDevtoolsModule.instrumentStore({
         //    monitor: useLogMonitor({
@@ -35,6 +36,9 @@ import { SideNavComponent } from "./sidenav/sidenav.component";
         AppComponent,
         NavbarComponent,
         SideNavComponent
+    ],
+    providers: [
+        PreloadSelectedModules
     ],
     bootstrap: [AppComponent]
 })
