@@ -12,6 +12,4 @@ export class HeroesAddComponent implements OnInit {
         
     }
     
-
-
 }

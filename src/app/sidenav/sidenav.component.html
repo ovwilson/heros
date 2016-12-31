@@ -1,15 +1,8 @@
 <ul id="slide-out" class="side-nav">
-    <li>
-        <div class="userView">
-            <router-outlet name="add"></router-outlet>
-        </div>
-    </li>
-    <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-    <li><a href="#!">Second Link</a></li>
-    <li>
-        <div class="divider"></div>
-    </li>
-    <li><a class="subheader">Subheader</a></li>
-    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+    <li><router-outlet name="sidenav"></router-outlet></li>
+    <li><div class="divider"></div></li>
+    <li><a class="btn-flat" (click)="closeNav()">Close</a></li>
 </ul>
+
+<!-- Hidden Activation Button -->
 <a class="btn-collapse" data-activates="slide-out"></a>

@@ -16,7 +16,7 @@ export class HeroesComponent implements OnInit {
     }
 
     addHero() {
-        this.router.navigate(["/heroes", { outlets: { "add": ["heroes-add"] } }]);
+        this.router.navigate(["/heroes", { outlets: { "sidenav": ["heroes-add"] } }]);
         this.showNav();
     }
 

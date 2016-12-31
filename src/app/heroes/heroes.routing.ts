@@ -4,7 +4,7 @@ import { HeroesAddComponent } from "./heroes-add/heroes-add.component";
 
 export const APPRROUTES: Routes = [
   { path: "", component: HeroesComponent },
-  { path: "heroes-add", component: HeroesAddComponent, outlet: "add" }
+  { path: "heroes-add", component: HeroesAddComponent, outlet: "sidenav" }
 ];
 
-// Example Auxiliary Route http://localhost:4200/speakers/(list:speakersList//bio:none)
+// Example Auxiliary Route http://localhost:8080/heroes/(sidenav:heroes-add)
