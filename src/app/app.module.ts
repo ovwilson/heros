@@ -1,7 +1,5 @@
 import { NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
-import { HttpModule } from "@angular/http";
 import { BrowserModule } from "@angular/platform-browser";
 
 import { StoreModule } from '@ngrx/store';
@@ -17,17 +15,16 @@ import { NavbarComponent } from "./navbar/navbar.component";
 import { SideNavComponent } from "./sidenav/sidenav.component";
 
 import { heroes } from "./reducers/heroes";
+import { filter } from "./reducers/filter";
 
 @NgModule({
     imports: [
         BrowserModule,
-        HttpModule,
-        FormsModule,
         RouterModule.forRoot(APPRROUTES, { preloadingStrategy: PreloadSelectedModules }),
-        StoreModule.provideStore({ heroes: heroes }),
+        StoreModule.provideStore({ heroes: heroes, filter: filter }),
         StoreDevtoolsModule.instrumentStore({
             monitor: useLogMonitor({
-                visible: true,
+                visible: false,
                 position: "right"
             })
         }),

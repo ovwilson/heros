@@ -1,1 +1,4 @@
 export const LISTEN_TO_HEROES = "LISTEN_TO_HEROES";
+export const ADD_HERO = "ADD_HERO";
+export const RECEIVE_ADD_HERO = "RECEIVE_ADD_HERO";
+export const RESET_HEROES = "RESET_HEROES";

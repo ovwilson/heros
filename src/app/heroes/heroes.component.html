@@ -5,9 +5,8 @@
   </div>
   <br />
   <div class="collection">
-    <a href="javascript:void(0)" class="collection-item"><span class="badge">1</span>Alan</a>
-    <a href="javascript:void(0)" class="collection-item"><span class="new badge">4</span>Alan</a>
-    <a href="javascript:void(0)" class="collection-item">Alan</a>
-    <a href="javascript:void(0)" class="collection-item"><span class="badge">14</span>Alan</a>
+    <a class="collection-item" *ngFor="let hero of heroes$ | async;">
+      <span *ngIf="hero.topRated" class="new badge" data-badge-caption="Top Rated"></span>{{hero.name}}
+    </a>
   </div>
 </div>
