@@ -13,16 +13,18 @@ import { PreloadSelectedModules } from "./app.preload-strategy";
 import { AppComponent } from "./app.component";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { SideNavComponent } from "./sidenav/sidenav.component";
+import { LoaderComponent } from "./loader/loader.component";
 
 import { heroes } from "./reducers/heroes";
 import { hero } from "./reducers/hero";
 import { filter } from "./reducers/filter";
+import { loader } from "./reducers/loader";
 
 @NgModule({
     imports: [
         BrowserModule,
         RouterModule.forRoot(APPRROUTES, { preloadingStrategy: PreloadSelectedModules }),
-        StoreModule.provideStore({ heroes: heroes, hero: hero, filter: filter }),
+        StoreModule.provideStore({ heroes: heroes, hero: hero, filter: filter, loader: loader }),
         StoreDevtoolsModule.instrumentStore({
             monitor: useLogMonitor({
                 visible: false,
@@ -35,7 +37,8 @@ import { filter } from "./reducers/filter";
     declarations: [
         AppComponent,
         NavbarComponent,
-        SideNavComponent
+        SideNavComponent,
+        LoaderComponent
     ],
     providers: [
         PreloadSelectedModules

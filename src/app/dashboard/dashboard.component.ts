@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 import { Observable } from "rxjs/Observable";
 import { SHOW_TOP_RATED } from "./../reducers/filter";
 import { Hero } from "./../models/hero";
+import { SHOW_LOADING, HIDE_LOADING } from "./../reducers/loader";
 
 import "./../../rxjs-extensions";
 
@@ -20,8 +21,14 @@ export class DashboardComponent implements OnInit {
     constructor(private router: Router, private store: Store<any>) { }
 
     ngOnInit() {
+        this.store.dispatch({ type: SHOW_LOADING })
         this.topHeroes$ = this.store.select("filter");
-        this.store.select("heroes").subscribe(heroes => this.store.dispatch({ type: SHOW_TOP_RATED, payload: { heroes: heroes } }));
+        this.store.select("heroes")
+            .subscribe(heroes => {
+                this.store.dispatch({ type: SHOW_TOP_RATED, payload: { heroes: heroes } });
+                this.store.dispatch({ type: HIDE_LOADING });
+            });
+
     }
 
     editHero(hero: Hero) {

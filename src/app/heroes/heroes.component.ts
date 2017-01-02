@@ -18,7 +18,9 @@ export class HeroesComponent implements OnInit {
     heroes$: Observable<Hero[]> = Observable.of<Hero[]>([]);
 
     constructor(private router: Router, private store: Store<any>) {
+        this.store.dispatch({ type: "SHOW_LOADING" });
         this.heroes$ = this.store.select("heroes");
+        this.heroes$.subscribe(() => this.store.dispatch({ type: "HIDE_LOADING" }));
     }
 
     ngOnInit() {

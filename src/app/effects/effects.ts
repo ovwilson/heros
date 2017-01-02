@@ -50,7 +50,6 @@ export class FirebaseEffects {
 
     @Effect({ dispatch: false }) addHero$ = this.actions$.ofType(ADD_HERO)
         .do((action: Action) => {
-            console.log(action.payload);
             firebase.database().ref("/").push(action.payload);
         });
 
