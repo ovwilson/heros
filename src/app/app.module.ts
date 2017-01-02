@@ -15,13 +15,14 @@ import { NavbarComponent } from "./navbar/navbar.component";
 import { SideNavComponent } from "./sidenav/sidenav.component";
 
 import { heroes } from "./reducers/heroes";
+import { hero } from "./reducers/hero";
 import { filter } from "./reducers/filter";
 
 @NgModule({
     imports: [
         BrowserModule,
         RouterModule.forRoot(APPRROUTES, { preloadingStrategy: PreloadSelectedModules }),
-        StoreModule.provideStore({ heroes: heroes, filter: filter }),
+        StoreModule.provideStore({ heroes: heroes, hero: hero, filter: filter }),
         StoreDevtoolsModule.instrumentStore({
             monitor: useLogMonitor({
                 visible: false,

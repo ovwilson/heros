@@ -7,7 +7,7 @@
                     <p>{{hero.description}}</p>
                 </div>
                 <div class="card-action">
-                    <a href="javascript:void(0)">View Hero</a>
+                    <a href="javascript:void(0)" (click)="editHero(hero)">Edit {{hero.name}}</a>
                 </div>
             </div>
         </div>

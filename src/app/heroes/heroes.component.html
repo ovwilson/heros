@@ -1,12 +1,14 @@
 <div class="container">
   <br />
-  <div class="col 12">
-    <a class="btn-flat" (click)="addHero()">Add Hero</a>
+  <div class="col s12 right-align">
+    <a class="btn-floating btn-large red" (click)="addHero()"><i class="fa fa-plus"></i></a>
   </div>
   <br />
   <div class="collection">
     <a class="collection-item" *ngFor="let hero of heroes$ | async;">
-      <span *ngIf="hero.topRated" class="new badge" data-badge-caption="Top Rated"></span>{{hero.name}}
+      <span><a href="javascript:void(0)" (click)="editHero(hero)"><i class="fa fa-edit"></i></a></span>
+      <span><a href="javascript:void(0)" (click)="removeHero(hero)"><i class="fa fa-trash"></i></a></span> {{hero.name}}
+      <span *ngIf="hero.topRated" class="new badge" data-badge-caption="Top Rated"></span>
     </a>
   </div>
 </div>

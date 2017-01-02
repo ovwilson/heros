@@ -4,6 +4,7 @@ import { FormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { HeroesComponent } from "./heroes.component";
 import { HeroesAddComponent } from "./heroes-add/heroes-add.component";
+import { HeroesEditComponent } from "./heroes-edit/heroes-edit.component";
 import { APPRROUTES } from "./heroes.routing";
 
 @NgModule({
@@ -14,7 +15,8 @@ import { APPRROUTES } from "./heroes.routing";
   ],
   declarations: [
     HeroesComponent,
-    HeroesAddComponent
+    HeroesAddComponent,
+    HeroesEditComponent
   ],
   exports: [
     RouterModule

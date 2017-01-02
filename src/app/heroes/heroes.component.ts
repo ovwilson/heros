@@ -2,8 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs/Observable";
-import { LISTEN_TO_HEROES, RESET_HEROES } from "./../actions/actions";
 import { Hero } from "./../models/hero";
+import { REMOVE_HERO } from "./../actions/actions";
 
 import "./../../rxjs-extensions";
 
@@ -14,21 +14,29 @@ declare var window: any;
 })
 
 export class HeroesComponent implements OnInit {
-    
-    heroes$ : Observable<Hero[]> = Observable.of<Hero[]>([]);
 
-    constructor(private router: Router, private store : Store<any>) {
+    heroes$: Observable<Hero[]> = Observable.of<Hero[]>([]);
+
+    constructor(private router: Router, private store: Store<any>) {
         this.heroes$ = this.store.select("heroes");
-     }
+    }
 
     ngOnInit() {
-        this.store.dispatch({type:RESET_HEROES});
-        this.store.dispatch({type:LISTEN_TO_HEROES});
+
     }
 
     addHero() {
         this.router.navigate(["/heroes", { outlets: { "sidenav": ["heroes-add"] } }]);
         this.showNav();
+    }
+
+    editHero(hero: Hero) {
+        this.router.navigate(["/heroes", { outlets: { "sidenav": ["heroes-edit", hero.id] } }]);
+        this.showNav();
+    }
+
+    removeHero(hero: Hero) {
+        this.store.dispatch({ type: REMOVE_HERO, payload: hero });
     }
 
     showNav() {
