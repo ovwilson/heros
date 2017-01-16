@@ -1,0 +1,68 @@
+<div class="container">
+    <h3>{{(hero$ | async)?.name}} </h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Top Rated</th>
+            </tr>
+        </thead>
+        <tbody>
+            <td>{{(hero$ | async)?.id}}</td>
+            <td>{{(hero$ | async)?.name}}</td>
+            <td>{{(hero$ | async)?.description}}</td>
+            <td>{{(hero$ | async)?.topRated}}</td>
+        </tbody>
+    </table>
+
+    <ul class="collapsible" data-collapsible="accordion">
+        <li>
+            <div class="collapsible-header"><i class="fa fa-user-circle"></i>Associated Friends</div>
+            <div class="collapsible-body">
+                <div class="container">
+                    <div class="col s12 right-align">
+                        <a class="btn-floating btn-large red" (click)="addFriend()"><i class="fa fa-plus"></i></a>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Top Rated</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <td></td>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header"><i class="fa fa-user-circle"></i>Associated Villians</div>
+            <div class="collapsible-body">
+                <div class="container">
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Top Rated</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <td></td>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </li>
+    </ul>
+
+
+</div>

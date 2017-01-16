@@ -1,0 +1,76 @@
+<div class="container">
+    <h4>Hero Lookup</h4>
+    <div class="row">
+        <div class="col s12">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" #term id="autocomplete-input" name="autocomplete-input" (keyup)="search(term.value)" class="autocomplete">
+                    <label for="autocomplete-input">Search</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Select</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let hero of heroes">
+                <td>{{hero.name}}</td>
+                <td>{{hero.description}}</td>
+                <td><a (click)="selectHero(hero)" href="javascript:void(0)"><i class="fa fa-plus"></i></a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h4>Selections</h4>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Top Rated</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let hero of selectedHeroes">
+                <td>{{hero.id}}</td>
+                <td>{{hero.name}}</td>
+                <td>{{hero.description}}</td>
+                <td>{{hero.topRated}}</td>
+                <td><a (click)="removeHero(hero)" href="javascript:void(0)"><i class="fa fa-trash"></i></a></td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="javascript:void(0)" (click)="closeSideNav()">Close</a>
+
+
+
+</div>
+<div class="container" [hidden]="true">
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Top Rated</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let hero of heroes$ | async">
+                <td>{{hero.id}}</td>
+                <td>{{hero.name}}</td>
+                <td>{{hero.description}}</td>
+                <td>{{hero.topRated}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

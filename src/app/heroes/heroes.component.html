@@ -6,6 +6,7 @@
   <br />
   <div class="collection">
     <a class="collection-item" *ngFor="let hero of heroes$ | async;">
+      <span><a href="javascript:void(0)" (click)="displayHero(hero)"><i class="fa fa-user-circle"></i></a></span>
       <span><a href="javascript:void(0)" (click)="editHero(hero)"><i class="fa fa-edit"></i></a></span>
       <span><a href="javascript:void(0)" (click)="removeHero(hero)"><i class="fa fa-trash"></i></a></span> {{hero.name}}
       <span *ngIf="hero.topRated" class="new badge" data-badge-caption="Top Rated"></span>

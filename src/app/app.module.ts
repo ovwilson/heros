@@ -17,6 +17,7 @@ import { LoaderComponent } from "./loader/loader.component";
 
 import { heroes } from "./reducers/heroes";
 import { hero } from "./reducers/hero";
+import { herofriends } from "./reducers/hero-friends";
 import { filter } from "./reducers/filter";
 import { loader } from "./reducers/loader";
 
@@ -24,7 +25,7 @@ import { loader } from "./reducers/loader";
     imports: [
         BrowserModule,
         RouterModule.forRoot(APPRROUTES, { preloadingStrategy: PreloadSelectedModules }),
-        StoreModule.provideStore({ heroes: heroes, hero: hero, filter: filter, loader: loader }),
+        StoreModule.provideStore({ heroes: heroes, hero: hero, herofriends: herofriends, filter: filter, loader: loader }),
         StoreDevtoolsModule.instrumentStore({
             monitor: useLogMonitor({
                 visible: false,

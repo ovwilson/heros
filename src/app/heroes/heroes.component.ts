@@ -18,13 +18,12 @@ export class HeroesComponent implements OnInit {
     heroes$: Observable<Hero[]> = Observable.of<Hero[]>([]);
 
     constructor(private router: Router, private store: Store<any>) {
-        this.store.dispatch({ type: "SHOW_LOADING" });
         this.heroes$ = this.store.select("heroes");
-        this.heroes$.subscribe(() => this.store.dispatch({ type: "HIDE_LOADING" }));
     }
 
     ngOnInit() {
-
+        this.store.dispatch({ type: "SHOW_LOADING" });
+        this.heroes$.subscribe(() => this.store.dispatch({ type: "HIDE_LOADING" }));
     }
 
     addHero() {
@@ -35,6 +34,10 @@ export class HeroesComponent implements OnInit {
     editHero(hero: Hero) {
         this.router.navigate(["/heroes", { outlets: { "sidenav": ["heroes-edit", hero.id] } }]);
         this.showNav();
+    }
+
+    displayHero(hero: Hero) {
+        this.router.navigate(["/heroes-display", hero.id]);
     }
 
     removeHero(hero: Hero) {

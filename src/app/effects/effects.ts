@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Store, Action } from '@ngrx/store';
 import { Actions, Effect } from '@ngrx/effects';
-import { Hero } from "./../models/hero";
 import {
     LISTEN_TO_HEROES,
     ADD_HERO,
@@ -73,5 +72,7 @@ export class FirebaseEffects {
         .do((action: Action) => {
             firebase.database().ref("/").child(action.payload.id).remove();
         });
+
+  
 
 }
