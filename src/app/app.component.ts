@@ -1,8 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { Store } from "@ngrx/store";
-import { NavbarComponent } from "./navbar/navbar.component";
-import { SideNavComponent } from "./sidenav/sidenav.component";
-
 import { LISTEN_TO_HEROES } from "./actions/actions";
 import "../../public/styles.css";
 
@@ -13,6 +10,8 @@ import "../../public/styles.css";
 })
 
 export class AppComponent implements OnInit {
+
+    title: string = "Tour of Heroes";
 
     constructor(private store: Store<any>) { }
 
