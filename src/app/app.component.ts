@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
 
     title: string = "Tour of Heroes";
 
-    constructor(private store: Store<any>) { }
+    constructor(private store: Store<any>) {}
 
     ngOnInit() {
         this.store.dispatch({ type: LISTEN_TO_HEROES });
