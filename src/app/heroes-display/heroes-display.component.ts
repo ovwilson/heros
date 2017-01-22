@@ -5,6 +5,8 @@ import { Observable } from "rxjs/Observable";
 import { GET_HERO } from "./../actions/actions";
 import { Hero } from "./../models/hero";
 
+import "./../../rxjs-extensions";
+
 declare var window: any;
 
 @Component({
@@ -21,7 +23,6 @@ export class HeroesDisplayComponent implements OnInit {
     }
 
     ngOnInit() {
-        // this.hero$.subscribe(hero => this.hero = hero);
         this.route.params.subscribe((params: Params) => this.store.dispatch({ type: GET_HERO, payload: { id: params["id"] } }));
         this.initLists();
         this.hero$.filter(hero => Object.keys(hero).length > 0).subscribe(hero => this.id = hero.id);

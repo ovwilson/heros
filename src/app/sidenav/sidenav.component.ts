@@ -16,7 +16,7 @@ export class SideNavComponent implements OnInit {
                 edge: "right", // Choose the horizontal origin
                 closeOnClick: false, // Closes side-nav on <a> clicks, useful for Angular/Meteor
                 draggable: false // Choose whether you can drag to open on touch screens
-            });
+            });  
             console.info("Initialized SideNav");
         });
     }
