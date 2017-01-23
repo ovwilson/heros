@@ -11,3 +11,15 @@
     <ngrx-store-log-monitor toggleCommand="ctrl-h" positionCommand="ctrl-m"></ngrx-store-log-monitor>
 </main>
 <footer></footer>
+
+<div class="container">
+    <div class="input-field col s12">
+        <input id="name" name="name" type="text" [(ngModel)]="hero.name" #name="ngModel" [ngClass]="{invalid:inputName}" class="validate" required />
+        <label for="name" data-error="Please enter a name">Hero Name:</label>
+    </div>
+    <div class="input-field col s12">
+        <input id="description" name="description" type="text" [(ngModel)]="hero.description" [ngClass]="{invalid:inputDescription}" #description="ngModel" class="validate" required />
+        <label for="description" data-error="Please enter a description">Hero Description:</label>
+    </div>
+</div>
+

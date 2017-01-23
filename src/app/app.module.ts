@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
 import { BrowserModule } from "@angular/platform-browser";
+import { FormsModule } from "@angular/forms";
 
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -24,6 +25,7 @@ import { loader } from "./reducers/loader";
 @NgModule({
     imports: [
         BrowserModule,
+        FormsModule,
         RouterModule.forRoot(APPRROUTES, { preloadingStrategy: PreloadSelectedModules }),
         StoreModule.provideStore({ heroes: heroes, hero: hero, herofriends: herofriends, filter: filter, loader: loader }),
         StoreDevtoolsModule.instrumentStore({

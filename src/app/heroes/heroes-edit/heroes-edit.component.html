@@ -3,15 +3,16 @@
     <div class="col s12">
         {{hero.id}}
     </div>
-    <div class="col s12">
+    <div class="input-field col s12">
+        <input id="name" name="name" [(ngModel)]="hero.name" #name="ngModel" type="text" class="validate" required />
         <label for="name">Hero Name:</label>
-        <input id="name" name="name" [(ngModel)]="hero.name" #name="ngModel" type="text" class="form-control" required />
     </div>
-    <div class="col s12">
-        <label for="description">Description:</label>
+    <div class="input-field col s12">
         <textarea id="description" name="description" [(ngModel)]="hero.description" #description="ngModel" class="materialize-textarea"></textarea>
+        <label for="description">Description:</label>
+
     </div>
-    <div class="col s12">
+    <div class="input-field col s12">
         <input type="checkbox" id="topRated" name="topRated" [(ngModel)]="hero.topRated" #topRated="ngModel" [checked]="hero.topRated"
         />
         <label for="topRated">Top Rated:</label>
