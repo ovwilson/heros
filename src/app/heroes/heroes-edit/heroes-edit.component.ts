@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import { Store } from '@ngrx/store';
+
 import { UPDATE_HERO, GET_HERO } from "./../../actions/actions";
 import { Observable } from "rxjs/Observable";
 import { Hero } from "./../../models/hero";

@@ -1,17 +1,16 @@
 <div class="container">
     <h1>Hero Add</h1>
-    <div class="col s12">
-        <label for="name">Hero Name:</label>
-        <input id="name" name="name" [(ngModel)]="hero.name" #name="ngModel" type="text" class="form-control" required />
+    <div class="input-field col s12">
+        <input id="name" name="name" type="text" [(ngModel)]="hero.name" #name="ngModel" [ngClass]="{invalid:inputName}" class="validate" required />
+        <label for="name" data-error="Please enter a name." [ngClass]="{active:inputNameLabel}">Hero Name:</label>
     </div>
-    <div class="col s12">
-        <label for="description">Description:</label>
-        <textarea id="description" name="description" [(ngModel)]="hero.description" #description="ngModel" class="materialize-textarea"></textarea>
+    <div class="input-field col s12">
+        <input id="description" name="description" type="text" [(ngModel)]="hero.description" [ngClass]="{invalid:inputDescription}" #description="ngModel" class="validate" required />
+        <label for="description" data-error="Please enter a description." [ngClass]="{active:inputDescriptionLabel}">Hero Description:</label>
     </div>
     <div class="col s12">
         <input type="checkbox" id="topRated" name="topRated" [(ngModel)]="hero.topRated" #topRated="ngModel" [checked]="hero.topRated" />
         <label for="topRated">Top Rated:</label>
     </div>
     <a class="btn-flat" (click)="addHero()">Submit</a>
-
 </div>
