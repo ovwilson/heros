@@ -1,5 +1,5 @@
 import { ActionReducer, Action } from '@ngrx/store';
-import { Hero } from "./../models/hero";
+import { Hero } from "./../../models/hero";
 
 export const SHOW_TOP_RATED = "SHOW_TOP_RATED";
 

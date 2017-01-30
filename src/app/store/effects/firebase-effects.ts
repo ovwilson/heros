@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Store, Action } from '@ngrx/store';
 import { Actions, Effect } from '@ngrx/effects';
+import { AppState } from "./../app-state";
+
 import {
+    
     LISTEN_TO_HEROES,
     ADD_HERO,
     UPDATE_HERO,
@@ -12,9 +15,10 @@ import {
     RECEIVE_UPDATE_HERO_TO_LIST,
     RECEIVE_GET_HERO,
     RECEIVE_REMOVE_HERO
+    
 } from "./../actions/actions";
 
-import "./../../rxjs-extensions";
+import "./../../../rxjs-extensions";
 
 declare var firebase: any;
 
@@ -22,7 +26,7 @@ declare var firebase: any;
 
 export class FirebaseEffects {
 
-    constructor(private actions$: Actions, private store: Store<any>) { }
+    constructor(private actions$: Actions, private store: Store<AppState>) { }
 
     @Effect({ dispatch: false }) listenForTodos$ = this.actions$.ofType(LISTEN_TO_HEROES)
         .do(() => {
@@ -71,8 +75,6 @@ export class FirebaseEffects {
     @Effect({ dispatch: false }) removeHero$ = this.actions$.ofType(REMOVE_HERO)
         .do((action: Action) => {
             firebase.database().ref("/").child(action.payload.id).remove();
-        });
-
-  
+        });  
 
 }

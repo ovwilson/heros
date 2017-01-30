@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import { Store } from '@ngrx/store';
 
-import { UPDATE_HERO, GET_HERO } from "./../../actions/actions";
+import { UPDATE_HERO, GET_HERO } from "./../../store/actions/actions";
 import { Observable } from "rxjs/Observable";
 import { Hero } from "./../../models/hero";
 
@@ -26,11 +26,7 @@ export class HeroesEditComponent implements OnInit {
     }
 
     ngDoCheck() {
-        let thisRouter = this.router;
-        window.$("#sidenav-overlay").on("click", function () {
-            thisRouter.navigate(["/heroes"]);
-            console.log("closing & routing");
-        });
+        
     }
 
     updateHero() {

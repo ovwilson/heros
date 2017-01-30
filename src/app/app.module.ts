@@ -5,7 +5,8 @@ import { FormsModule } from "@angular/forms";
 
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { FirebaseEffects } from "./effects/effects";
+import { FirebaseEffects } from "./store/effects/firebase-effects";
+import { MaterializeEffects } from "./store/effects/materialize-effects";
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreLogMonitorModule, useLogMonitor } from '@ngrx/store-log-monitor';
 
@@ -13,14 +14,13 @@ import { APPRROUTES } from "./app.routes";
 import { PreloadSelectedModules } from "./app.preload-strategy";
 import { AppComponent } from "./app.component";
 import { NavbarComponent } from "./navbar/navbar.component";
-import { SideNavComponent } from "./sidenav/sidenav.component";
 import { LoaderComponent } from "./loader/loader.component";
 
-import { heroes } from "./reducers/heroes";
-import { hero } from "./reducers/hero";
-import { herofriends } from "./reducers/hero-friends";
-import { filter } from "./reducers/filter";
-import { loader } from "./reducers/loader";
+import { heroes } from "./store/reducers/heroes";
+import { hero } from "./store/reducers/hero";
+import { herofriends } from "./store/reducers/hero-friends";
+import { filter } from "./store/reducers/filter";
+import { loader } from "./store/reducers/loader";
 
 @NgModule({
     imports: [
@@ -35,12 +35,12 @@ import { loader } from "./reducers/loader";
             })
         }),
         StoreLogMonitorModule,
-        EffectsModule.run(FirebaseEffects)
+        EffectsModule.run(FirebaseEffects),        
+        EffectsModule.run(MaterializeEffects)
     ],
     declarations: [
         AppComponent,
         NavbarComponent,
-        SideNavComponent,
         LoaderComponent
     ],
     providers: [

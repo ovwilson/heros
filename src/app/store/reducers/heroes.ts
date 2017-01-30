@@ -1,6 +1,6 @@
 import { ActionReducer, Action } from "@ngrx/store";
 import { RECEIVE_ADD_HERO, RECEIVE_REMOVE_HERO, RECEIVE_UPDATE_HERO_TO_LIST } from "./../actions/actions";
-import { Hero } from "./../models/hero";
+import { Hero } from "./../../models/hero";
 
 const initialState: Hero[] = [];
 

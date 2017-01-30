@@ -3,7 +3,7 @@ import { Router } from "@angular/router";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs/Observable";
 import { Hero } from "./../models/hero";
-import { REMOVE_HERO } from "./../actions/actions";
+import { REMOVE_HERO } from "./../store/actions/actions";
 
 import "./../../rxjs-extensions";
 
@@ -27,12 +27,12 @@ export class HeroesComponent implements OnInit {
     }
 
     addHero() {
-        this.router.navigate(["/heroes", { outlets: { "sidenav": ["heroes-add"] } }]);
+        //this.router.navigate(["/heroes", { outlets: { "sidenav": ["heroes-add"] } }]);
         this.showNav();
     }
 
     editHero(hero: Hero) {
-        this.router.navigate(["/heroes", { outlets: { "sidenav": ["heroes-edit", hero.id] } }]);
+        //this.router.navigate(["/heroes", { outlets: { "sidenav": ["heroes-edit", hero.id] } }]);
         this.showNav();
     }
 

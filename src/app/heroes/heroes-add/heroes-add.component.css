@@ -1,0 +1,18 @@
+/* invalid color */
+   .input-field input[type=text].invalid {
+     border-bottom: 1px solid #F44336;
+     box-shadow: 0 1px 0 0 #F44336;
+   }
+
+   .input-field input[type=text].ng-invalid {
+     border-bottom: 1px solid #F44336;
+     box-shadow: 0 1px 0 0 #F44336;
+   }
+
+    .input-field label.invalid  {
+     color: #F44336 !important;
+   }
+
+    label.active.ng-invalid  {
+     display: none;
+    }   

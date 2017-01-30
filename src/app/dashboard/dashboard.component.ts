@@ -2,9 +2,9 @@ import { Component, OnInit } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { Router } from "@angular/router";
 import { Observable } from "rxjs/Observable";
-import { SHOW_TOP_RATED } from "./../reducers/filter";
+import { SHOW_TOP_RATED } from "./../store/reducers/filter";
 import { Hero } from "./../models/hero";
-import { SHOW_LOADING, HIDE_LOADING } from "./../reducers/loader";
+import { SHOW_LOADING, HIDE_LOADING } from "./../store/reducers/loader";
 
 import "./../../rxjs-extensions";
 

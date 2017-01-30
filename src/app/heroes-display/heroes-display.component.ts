@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from "@angular/router";
 import { Store } from '@ngrx/store';
 import { Observable } from "rxjs/Observable";
-import { GET_HERO } from "./../actions/actions";
+import { GET_HERO } from "./../store/actions/actions";
 import { Hero } from "./../models/hero";
 
 import "./../../rxjs-extensions";
@@ -10,7 +10,8 @@ import "./../../rxjs-extensions";
 declare var window: any;
 
 @Component({
-    templateUrl: "./heroes-display.component.html"
+    templateUrl: "./heroes-display.component.html",
+    styleUrls:["./heroes-display.component.css"]
 })
 
 export class HeroesDisplayComponent implements OnInit {
