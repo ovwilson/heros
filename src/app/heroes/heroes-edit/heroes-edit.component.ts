@@ -14,9 +14,8 @@ declare var window: any;
 
 export class HeroesEditComponent implements OnInit {
 
-    hero$: Observable<Hero> = Observable.of<Hero>({});
-    hero: Hero = { name: "", description: "", topRated: false };
-
+    hero$: Observable<Hero> = Observable.of<Hero>();
+    hero: Hero = new Hero("","","",false);
     constructor(private route: ActivatedRoute, private router: Router, private store: Store<any>) { }
 
     ngOnInit() {

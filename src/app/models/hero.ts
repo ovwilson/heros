@@ -1,8 +1,10 @@
-export interface Hero {
-    id?: string,
-    name?:string,
-    description?: string,
-    topRated?: boolean
+export class Hero {
+    constructor(
+        public id: string,
+        public name: string,
+        public description: string,
+        public topRated: boolean
+    ) { }
 }
 
 export interface AppState {

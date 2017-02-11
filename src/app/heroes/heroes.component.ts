@@ -7,10 +7,13 @@ import { REMOVE_HERO } from "./../store/actions/actions";
 
 import "./../../rxjs-extensions";
 
+const addSideNavID = "addHeroBtn";
+
 declare var window: any;
 
 @Component({
-    templateUrl: "./heroes.component.html"
+    templateUrl: "./heroes.component.html",
+    styleUrls: ["./heroes.component.css"]
 })
 
 export class HeroesComponent implements OnInit {
@@ -33,7 +36,7 @@ export class HeroesComponent implements OnInit {
 
     editHero(hero: Hero) {
         //this.router.navigate(["/heroes", { outlets: { "sidenav": ["heroes-edit", hero.id] } }]);
-        this.showNav();
+        //   this.showNav();
     }
 
     displayHero(hero: Hero) {
@@ -45,15 +48,22 @@ export class HeroesComponent implements OnInit {
     }
 
     showNav() {
-        setTimeout(() => window.$(".btn-collapse").sideNav("show"));
+        window.$("#" + addSideNavID).sideNav({
+            menuWidth: 500, // Default is 300
+            edge: 'right', // Choose the horizontal origin
+            closeOnClick: false, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+            draggable: true // Choose whether you can drag to open on touch screens
+        });
+        setTimeout(() => window.$("#" + addSideNavID).sideNav("show"));
     }
 
     hideNav() {
-        setTimeout(() => window.$(".btn-collapse").sideNav("hide"));
+        setTimeout(() => window.$("#" + addSideNavID).sideNav("hide"));
+        this.destroyNav();
     }
 
     destroyNav() {
-        setTimeout(() => window.$(".btn-collapse").sideNav("destroy"));
+        setTimeout(() => window.$("#" + "#" + addSideNavID).sideNav("destroy"), 500);
     }
 
 }

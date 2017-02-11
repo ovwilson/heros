@@ -14,7 +14,7 @@ declare var window: any;
 
 export class HeroesLookupComponent implements OnInit {
 
-    heroes$: Observable<Hero[]> = Observable.of<Hero>([]);
+    heroes$: Observable<Hero[]> = Observable.of<Hero[]>([]);
     heroes: Hero[] = [];
     selectedHeroes: Hero[] = [];
     searchTerms$: Subject<string> = new Subject<string>();

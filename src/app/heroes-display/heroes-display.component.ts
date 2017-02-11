@@ -16,7 +16,7 @@ declare var window: any;
 
 export class HeroesDisplayComponent implements OnInit {
 
-    hero$: Observable<Hero> = Observable.of<Hero>({});
+    hero$: Observable<Hero> = Observable.of<Hero>();
     id: string;
 
     constructor(private store: Store<any>, private route: ActivatedRoute, private router: Router) {

@@ -1,4 +1,5 @@
-<div id="slide-out" class="side-nav">
+<div id="add-slide-out" class="side-nav">
+    
     <div class="divider"></div>
 
     <div class="container">
@@ -13,16 +14,17 @@
                 #description="ngModel" class="validate" required />
             <label for="description" data-error="Please enter a description." [ngClass]="{invalid:inputDescription}">Hero Description:</label>
         </div>
-        <div class="col s12">
+        <div class="input-field col s12">
             <input type="checkbox" id="topRated" name="topRated" [(ngModel)]="hero.topRated" #topRated="ngModel" [checked]="hero.topRated"
             />
             <label for="topRated">Top Rated:</label>
         </div>
-        <a class="btn-flat" (click)="addHero()">Submit</a>
+        <div class="input-field col s12">
+            <a class="btn-flat" (click)="addHero()">Submit</a>
+        </div>
     </div>
 
-    <div class="divider"></div>
 </div>
 
 <!-- Hidden Activation Button -->
-<a class="btn-collapse" data-activates="slide-out"></a>
+<a id="addHeroBtn" class="btn-collapse" data-activates="add-slide-out"></a>

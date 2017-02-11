@@ -4,18 +4,29 @@
     <a class="btn-floating btn-large red" (click)="addHero()"><i class="fa fa-plus"></i></a>
   </div>
   <br />
-  <div class="collection">
-    <a class="collection-item" *ngFor="let hero of heroes$ | async;">
-      <span><a href="javascript:void(0)" (click)="displayHero(hero)"><i class="fa fa-user-circle"></i> Show</a></span>
-      <span><a href="javascript:void(0)" (click)="editHero(hero)"><i class="fa fa-edit"></i> Edit</a></span>
-      <span><a href="javascript:void(0)" (click)="removeHero(hero)"><i class="fa fa-trash"></i> Remove </a></span> {{hero.name}}
-      <span *ngIf="hero.topRated" class="new badge" data-badge-caption="Top Rated"></span>
-    </a>
-  </div>
-
-  <hr>
-  <div class="container">
-    <div class="chip" *ngFor="let hero of heroes$ | async">{{hero.name}} <i (click)="removeHero(hero)" class="fa fa-times"></i></div>
-  </div>
+  <table class="striped responsive-table">
+    <thead>
+      <tr>
+        <th>Show</th>
+        <th>Edit</th>
+        <th>Remove</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let hero of heroes$ | async;">
+        <td><span><a href="javascript:void(0)" (click)="displayHero(hero)"><i class="fa fa-user-circle"></i></a></span></td>
+        <td><span><a href="javascript:void(0)" (click)="editHero(hero)"><i class="fa fa-edit"></i></a></span></td>
+        <td> <span><a href="javascript:void(0)" (click)="removeHero(hero)"><i class="fa fa-trash"></i></a></span></td>
+        <td>{{hero.name}}</td>
+        <td>{{hero.description}}</td>
+        <td><span *ngIf="hero.topRated" class="new badge" data-badge-caption="Top Rated"></span></td>
+      </tr>
+    </tbody>
+  </table>
 
 </div>
+
+<hero-add></hero-add>

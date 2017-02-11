@@ -16,19 +16,14 @@ declare var window: any;
 
 export class DashboardComponent implements OnInit {
 
-    topHeroes$: Observable<Hero[]> = Observable.of<Hero[]>([]);
+    heroes$: Observable<Hero[]> = Observable.of<Hero[]>([]);
 
-    constructor(private router: Router, private store: Store<any>) { }
+    constructor(private router: Router, private store: Store<any>) {
+        this.heroes$ = this.store.select("heroes");
+    }
 
     ngOnInit() {
-        this.store.dispatch({ type: SHOW_LOADING })
-        this.topHeroes$ = this.store.select("filter");
-        this.store.select("heroes")
-            .subscribe(heroes => {
-                this.store.dispatch({ type: SHOW_TOP_RATED, payload: { heroes: heroes } });
-                this.store.dispatch({ type: HIDE_LOADING });
-            });
-
+        this.heroes$.flatMap((heroes: Hero[]) => heroes).filter((hero: Hero) => hero.topRated);
     }
 
     editHero(hero: Hero) {
@@ -41,3 +36,10 @@ export class DashboardComponent implements OnInit {
     }
 
 }
+
+//this.store.dispatch({ type: SHOW_LOADING });
+    //do(heroes => {
+    //    this.store.dispatch({ type: SHOW_TOP_RATED, payload: { heroes: heroes } });
+    //    this.store.dispatch({ type: HIDE_LOADING });
+    //});
+

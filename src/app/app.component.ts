@@ -13,7 +13,7 @@ import "../../public/styles.css";
 export class AppComponent implements OnInit {
 
     title: string = "Tour of Heroes";
-    hero: Hero = {};
+    hero: Hero = new Hero("","","",false);
    
     constructor(private store: Store<any>) { }
 

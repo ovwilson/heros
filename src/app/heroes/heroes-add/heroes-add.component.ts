@@ -16,7 +16,7 @@ declare var Materialize: any;
 
 export class HeroesAddComponent implements OnInit {
 
-    hero: Hero = {};
+    hero: Hero = new Hero("","","",false);
 
     inputName: boolean = false;
     inputDescription: boolean = false;
@@ -24,13 +24,13 @@ export class HeroesAddComponent implements OnInit {
     constructor(private store: Store<any>) { }
 
     ngOnInit() {
-        this.hero = { name: "", description: "", topRated: false };
+        
     }
 
     ngDoCheck() {
         // Validation
-        this.hero.name === "" ? this.inputName = true : this.inputName = false;
-        this.hero.description === "" ? this.inputDescription = true : this.inputDescription = false;
+        //this.hero.name === "" ? this.inputName = true : this.inputName = false;
+        //this.hero.description === "" ? this.inputDescription = true : this.inputDescription = false;
          Materialize.updateTextFields();
     }
 

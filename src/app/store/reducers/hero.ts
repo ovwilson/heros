@@ -2,7 +2,7 @@ import { ActionReducer, Action } from "@ngrx/store";
 import { RECEIVE_GET_HERO, RECEIVE_UPDATE_HERO } from "./../actions/actions";
 import { Hero } from "./../../models/hero";
 
-const initialState: Hero = {};
+const initialState: Hero = new Hero("","","",false);
 
 export const hero: ActionReducer<Hero> = (state: Hero = initialState, action: Action) => {
     switch (action.type) {
