@@ -14,5 +14,5 @@
    }
 
     label.active.ng-invalid  {
-     display: none;
+     /*display: none; */
     }   

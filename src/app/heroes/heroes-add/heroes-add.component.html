@@ -10,8 +10,8 @@
             <label for="name" data-error="Please enter a name." [ngClass]="{invalid:inputName}">Hero Name:</label>
         </div>
         <div class="input-field col s12">
-            <input id="description" name="description" type="text" [(ngModel)]="hero.description" [ngClass]="{invalid:inputDescription}"
-                #description="ngModel" class="validate" required />
+            <textarea id="description" name="description" class="materialize-textarea validate" [(ngModel)]="hero.description" [ngClass]="{invalid:inputDescription}"
+                #description="ngModel" required></textarea>
             <label for="description" data-error="Please enter a description." [ngClass]="{invalid:inputDescription}">Hero Description:</label>
         </div>
         <div class="input-field col s12">
