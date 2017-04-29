@@ -35,8 +35,7 @@ export class HeroesComponent implements OnInit {
     }
 
     editHero(hero: Hero) {
-        //this.router.navigate(["/heroes", { outlets: { "sidenav": ["heroes-edit", hero.id] } }]);
-        //   this.showNav();
+        this.router.navigate(["/heroes", { outlets: { "sidenav": ["heroes-edit", hero.id] } }]);
     }
 
     displayHero(hero: Hero) {
